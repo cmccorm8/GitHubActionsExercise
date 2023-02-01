@@ -20,7 +20,6 @@ jobs:
         env:
           CONTEXT_ITEM: ${{ toJson(job) }}
         run: echo "${CONTEXT_ITEM}"
-        exit 1
   third-job:
     name: Third Job (series)
     runs-on: ubuntu-latest
