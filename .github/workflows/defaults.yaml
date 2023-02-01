@@ -6,22 +6,21 @@ jobs:
   first-job:
     name: First Job
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+        working-directory: src
     steps:
       - name: Create Source Directory
         run: mkdir src
-        shell: bash
+        working-directory: .
       - name: Use Python
         run: print("I'm running python! Hissssss!")
         shell: python
-        working-directory: src
       - name: Use Bash
         run: echo "I'm running hum-drum bash. Booo."
-        shell: bash
-        working-directory: src
       - name: Use Bash Also
         run: echo "I'm running bash also. Booo."
-        shell: bash
-        working-directory: src
   second-job:
     name: Second Job
     runs-on: ubuntu-latest
@@ -29,6 +28,7 @@ jobs:
       - name: Create Source Directory
         run: mkdir src
         shell: bash
+        working-directory: .
       - name: Use Bash
         run: echo "I'm running bash. So sad."
         shell: bash
