@@ -1,0 +1,25 @@
+name: Continuous Deployment
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows: [Continuous Integration & Delivery]
+    branches: [main]
+    types:
+      - completed
+defaults:
+  run:
+    shell: bash
+env:
+  IMAGE_ID: ghcr.io/${{ github.repository_owner }}/${{ github.event.repository. name }}
+jobs:
+  deploy:
+    name: Deploy Docker Image
+    runs-on: ubuntu-latest
+    steps:
+      # A real example would have deployment steps for a container, like kubectl commands (for Kubernetes)
+      - name: Log In To Package Registry
+        run: echo "${{secrets.GITHUB_TOKEN}}" | docker login ghcr.io -u $ --password-stdin
+      - name: Pull Down The Image
+        run: docker pull $(echo $IMAGE_ID | tr '[A-Z]' '[a-z]'):latest
+      - name: Run The Container
+        run: docker run $(echo $IMAGE_ID | tr '[A-Z]' '[a-z]'):latest
