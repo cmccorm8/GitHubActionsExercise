@@ -14,6 +14,7 @@ env:
 jobs:
   deploy:
     name: Deploy Docker Image
+    environment: production
     runs-on: ubuntu-latest
     steps:
       # A real example would have deployment steps for a container, like kubectl commands (for Kubernetes)
