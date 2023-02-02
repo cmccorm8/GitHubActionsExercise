@@ -83,7 +83,7 @@ jobs:
           IMAGE_ID=ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}
           IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
           VERSION=$(echo "${{github.ref}}" | sed -e 's,.*/\(.*\),\1,')
-          [ "$VERSION" == "main" ] && VERSION=latest
+          [ "$VERSION" == 'main' ] && VERSION=latest
           docker build . --tag $IMAGE_ID:$VERSION --label "runnumber=${{github.run_id}}" --file Dockerfile
           docker push $IMAGE_ID:$VERSION
 ```
