@@ -56,7 +56,7 @@ jobs:
       - name: Clone
         uses: actions/checkout@v3.1.0
       - name: Get Artifact
-        uses: actions/download-artifact@v3.0.0
+        uses: actions/download-artifact@v3.0.2
         with:
           name: golang_app
           path: docker_image
