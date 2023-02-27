@@ -10,7 +10,7 @@ jobs:
       - name: List Directory Contents
         run: ls -latr
       - name: Checkout The Code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           clean: true
       - name: List Directory Contents Again

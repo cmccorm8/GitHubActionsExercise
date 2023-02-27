@@ -22,7 +22,7 @@ jobs:
           echo "::set-output name=gomodcache::$(go env GOMODCACHE)"
           echo "::set-output name=gocache::$(go env GOCACHE)"
       - name: Clone
-        uses: actions/checkout@v3.1.0
+        uses: actions/checkout@v3
       - name: Cache
         uses: actions/cache@v3.0.10
         with:
@@ -54,7 +54,7 @@ jobs:
         working-directory: docker_image
     steps:
       - name: Clone
-        uses: actions/checkout@v3.1.0
+        uses: actions/checkout@v3
       - name: Get Artifact
         uses: actions/download-artifact@v3.0.0
         with:
